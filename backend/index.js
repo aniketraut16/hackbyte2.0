@@ -1,8 +1,9 @@
 const express = require("express")
 const app = express()
 
+app.use(express.json())
 const mongoose = require("mongoose");
-const MongoDBUrl = "mongodb://localhost:27017";
+const MongoDBUrl = "mongodb+srv://ayushagrawal1811:viTk3z8uaSCA0XV7@hackbyte.edwiahn.mongodb.net/?retryWrites=true&w=majority&appName=Hackbyte";
 async function connectToDatabase() {
   try {
     await mongoose.connect(MongoDBUrl);
@@ -16,7 +17,7 @@ connectToDatabase();
 
 
 const organisationroutes = require('./routes/OrganisationRoutes');
-app.arguments(organisationroutes)
+app.use(organisationroutes)
 
 app.listen(5000, ()=>{ 
     console.log("Server started on port 5000")

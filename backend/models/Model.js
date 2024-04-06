@@ -47,16 +47,16 @@ const OrganizationSchema = new Schema({
   },
   about: {
     type: String,
-    required: true
+    // required: true
   },
   established_date: {
     type: Date,
-    required: true
+    // required: true
   },
   organisation_head: {
     type: Schema.Types.ObjectId,
     ref: 'User', // Reference to the User schema
-    required: true
+    // required: true
   },
   members: [{
     type: Schema.Types.ObjectId,
