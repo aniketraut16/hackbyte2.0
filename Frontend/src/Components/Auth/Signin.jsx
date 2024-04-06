@@ -1,7 +1,6 @@
-import { useState } from "react";
+import  { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
 function Signin() {
   const [username, setusername] = useState("");
   const [useremail, setuseremail] = useState("");
@@ -9,7 +8,8 @@ function Signin() {
   const [userphno, setuserphno] = useState("");
   const [userage, setuserage] = useState("");
   const [usergender, setusergender] = useState("");
-  const [userexperience, setuserexperience] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
   const [, setError] = useState("");
 
   const navigate = useNavigate();
@@ -27,7 +27,8 @@ function Signin() {
           userphno,
           userage,
           usergender,
-          userexperience,
+          city,
+          state,
         }
       );
 
@@ -40,6 +41,7 @@ function Signin() {
       alert("Error creating user. Please try again."); // Show an alert for error
     }
   };
+
   return (
     <div id="SignIn" className="secondoption">
       <form>
@@ -122,34 +124,32 @@ function Signin() {
           <option value="Other">Other</option>
         </select>
 
-        <label htmlFor="user-experience">Experience</label>
-        <select
-          name="user-experience"
-          id="userexperience"
-          value={userexperience}
+        <label htmlFor="city">City</label>
+        <input
+          type="text"
+          name="city"
+          id="city"
+          required
+          value={city}
           onChange={(e) => {
-            setuserexperience(e.target.value);
+            setCity(e.target.value);
           }}
-        >
-          <option value="" disabled selected>
-            What you have done so far?
-          </option>
-          <option value="Newbie">Newbie</option>
-          <option value="Participated in school drives">
-            Participated in school drives
-          </option>
-          <option value="Participated in college environmental drive">
-            Participated in college environmental drive
-          </option>
-          <option value="Member of any environmental community">
-            Member of any environmental community
-          </option>
-          <option value="Lead of any environmental community">
-            Lead of any environmental community
-          </option>
-        </select>
+        />
+
+        <label htmlFor="state">State</label>
+        <input
+          type="text"
+          name="state"
+          id="state"
+          required
+          value={state}
+          onChange={(e) => {
+            setState(e.target.value);
+          }}
+        />
+
         <p className="already-have">
-          Already have a account , <Link to="/login">Click here</Link> To login
+          Already have an account? <Link to="/login">Click here</Link> to login.
         </p>
         <button onClick={handleFormSubmit}>SignIn</button>
       </form>

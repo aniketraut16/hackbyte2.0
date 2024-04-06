@@ -18,14 +18,7 @@ function Home() {
         <img src={home} alt="Banyan Tree" />
         <img src={LandingPageCircle} id="ellipse1" alt="Landing Page Circle" />
         <p>
-          Ploggify connects communities with each other and with society to work
-          collaboratively. It allows communities to create profiles, showcase
-          their work, share their stories, and update their progress. It also
-          allows citizens to discover, follow, join, participate, or volunteer
-          in various community events and their activities. It also enables
-          citizens to report issues or problems that need the attention or
-          intervention of communities. Ploggify is designed to be user-friendly,
-          accessible, and secure.
+        Our initiative revolves around championing cleanliness and implementing effective waste management solutions through a user-friendly system. By encouraging individuals to capture and submit photos of areas they identify as requiring attention, we aim to foster community engagement and responsibility towards maintaining cleanliness. As a token of appreciation for their contribution, participants receive credits on our platform, which they can later redeem for essential household items such as groceries and daily necessities. It is essential to underscore that our primary focus is on reaching out to individuals from socio-economic backgrounds with below-average income levels.
         </p>
       </div>
       <div id="features">
