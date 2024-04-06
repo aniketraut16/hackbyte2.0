@@ -1,14 +1,20 @@
-#signinup{
+#signinup {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+   /* Change from flex-end to space-around */
     padding: 15px;
-}
+    font-size: 25px;
+    flex-direction: row;
+    justify-content:space-evenly;
+    
+  }
 #signinup a{
     color: black;
     text-decoration: none;
     margin-left: 15px;
 }
+
+
+
 
 #landing-page {
     position: relative;
