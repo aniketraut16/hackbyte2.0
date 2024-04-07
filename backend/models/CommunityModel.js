@@ -24,29 +24,6 @@ const CommunitySchema = new Schema({
     type: Date,
     // required: true
   },
-  community_head: {
-    type: Schema.Types.ObjectId,
-    ref: "User", // Reference to the User schema
-    // required: true
-  },
-  members: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "User", // Reference to the User schema
-    },
-  ],
-  events_conducting: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Event", // Reference to the Event schema
-    },
-  ],
-  events_conducted: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Event", // Reference to the Event schema
-    },
-  ],
   contact: {
     address: String,
     email: String,
@@ -56,4 +33,4 @@ const CommunitySchema = new Schema({
 
 const Community = mongoose.model("Community", CommunitySchema);
 
-module.exports = { Community };
+module.exports = Community;

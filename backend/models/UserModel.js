@@ -6,44 +6,35 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  city: String,
-  state: String,
-  password: {
-    type: String,
-    required: true,
-  },
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-  },
   email: {
     type: String,
     required: true,
     unique: true,
   },
-  phoneNumber: String,
-  points: Number,
-  eventsAttended: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Event",
-    },
-  ],
-  eventsEnrolled: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Event",
-    },
-  ],
-  communityFollowed: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Community",
-    },
-  ],
+  password: {
+    type: String,
+    required: true,
+  },
+  phoneNumber:{
+    type: String,
+    required: true,
+  },
+  age:{
+    type: Number,
+    required: true,
+  },
+  gender:String,
+  city: {
+    type: String,
+    required: true,
+  },
+  state: {
+    type: String,
+    required: true,
+  },
+  incentives: Number,
 });
 
 const User = mongoose.model("User", UserSchema);
 
-module.exports = { User };
+module.exports = {User} ;

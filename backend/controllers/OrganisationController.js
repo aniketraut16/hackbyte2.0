@@ -1,45 +1,45 @@
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
-const { Organization } = require('../models/Model');
-const { model } = require('mongoose');
+// const jwt = require('jsonwebtoken');
+// const bcrypt = require('bcrypt');
+// const { Organization } = require('../models/Model');
+// const { model } = require('mongoose');
 
-const createOrganization = async (req, res) => {
-  try {
-    // Extract organization details from request body
-    const { name, username, password, email } = req.body;
+// const createOrganization = async (req, res) => {
+//   try {
+//     // Extract organization details from request body
+//     const { name, username, password, email } = req.body;
 
-    // Check if organization with provided username or email already exists
-    const existingOrg = await Organization.findOne({ $or: [{ username }, { email }] });
-    if (existingOrg) {
-      return res.status(400).json({ message: 'Organization with provided username or email already exists' });
-    }
+//     // Check if organization with provided username or email already exists
+//     const existingOrg = await Organization.findOne({ $or: [{ username }, { email }] });
+//     if (existingOrg) {
+//       return res.status(400).json({ message: 'Organization with provided username or email already exists' });
+//     }
 
-    // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10);
+//     // Hash the password
+//     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create new organization
-    const organization = new Organization({
-      name,
-      organisation: {
-        username,
-        password: hashedPassword
-      },
-      email
-    });
+//     // Create new organization
+//     const organization = new Organization({
+//       name,
+//       organisation: {
+//         username,
+//         password: hashedPassword
+//       },
+//       email
+//     });
 
-    // Save organization to the database
-    await organization.save();
+//     // Save organization to the database
+//     await organization.save();
 
-    // Generate JWT token
-    const token = jwt.sign({ username: organization.organisation.username }, "123");
+//     // Generate JWT token
+//     const token = jwt.sign({ username: organization.organisation.username }, "123");
 
-    // Send success response with token
-    res.status(201).json({ message: 'Organization created successfully', token });
-  } catch (error) {
-    res.status(500).json({ message: 'Internal server error' });
-    console.log(error)
-  }
-};
+//     // Send success response with token
+//     res.status(201).json({ message: 'Organization created successfully', token });
+//   } catch (error) {
+//     res.status(500).json({ message: 'Internal server error' });
+//     console.log(error)
+//   }
+// };
 
 // const loginOrganization = async (req, res) => {
 //   try {
@@ -119,4 +119,3 @@ const createOrganization = async (req, res) => {
 // };
 
 // module.exports = { createOrganization, loginOrganization, updateOrganization, getOrganization };
-module.exports = {createOrganization}
